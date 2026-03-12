@@ -1,0 +1,13 @@
+{
+  "connectionName": "sqlserver_dev",
+  "type": "sqlserver",
+  "host": "192.168.1.100",
+  "port": 1433,
+  "database": "SalesDB",
+  "username": "etl_user",
+  "password": "${DB_PASSWORD}",
+  "options": {
+    "encrypt": true,
+    "trustServerCertificate": false
+  }
+}
