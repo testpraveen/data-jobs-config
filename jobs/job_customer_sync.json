@@ -1,0 +1,16 @@
+{
+  "jobName": "job_customer_sync",
+  "description": "Sync customer data between databases",
+  "schedule": "0 2 * * *",
+  "source": {
+    "type": "database",
+    "connection": "sqlserver_dev",
+    "query": "SELECT * FROM customers WHERE updated_at >= DATEADD(day, -1, GETDATE())"
+  },
+  "destination": {
+    "connection": "sqlserver_dev",
+    "table": "dbo.customers"
+  },
+  "mode": "upsert",
+  "primaryKey": "customer_id"
+}
