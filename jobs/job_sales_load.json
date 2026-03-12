@@ -1,0 +1,22 @@
+{
+  "jobName": "job_sales_load",
+  "description": "Load sales data from API into SQL Server",
+  "schedule": "0 * * * *",
+  "source": {
+    "type": "api",
+    "endpoint": "https://api.company.com/sales",
+    "method": "GET"
+  },
+  "destination": {
+    "connection": "sqlserver_dev",
+    "table": "dbo.sales"
+  },
+  "transformation": {
+    "columns": {
+      "id": "sale_id",
+      "amount": "sale_amount",
+      "date": "sale_date"
+    }
+  },
+  "mode": "append"
+}
